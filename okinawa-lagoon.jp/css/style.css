@@ -126,6 +126,23 @@ h3 {font-size: 1rem;}
 }
 
 /* --------------------------------------------------------------
+  Top/hero slider image standard (match 船の紹介)
+  Applied site-wide so the top slider images have consistent
+  width/height/object-fit across pages. Mobile height reduced.
+--------------------------------------------------------------- */
+.slider li img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 768px) {
+  .slider li img {
+    height: 400px;
+  }
+}
+
+/* --------------------------------------------------------------
  5: contact
 --------------------------------------------------------------- */
 input[type="button"] {
