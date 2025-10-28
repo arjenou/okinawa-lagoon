@@ -1,0 +1,169 @@
+﻿@charset "utf-8";
+/* //////////////////////////////////////////////////////////////
+
+ /css/rest.css
+ 
+//////////////////////////////////////////////////////////////*/
+
+
+/* -----------------------------------------------
+ CONTENTS 
+	
+	1: UNIVERSAL RESET 
+		: clear
+
+	2: FONT RESET
+	
+	3: LINK SETTING
+	
+	4: CLEARFIX
+	
+ ----------------------------------------------- */
+
+
+/* --------------------------------------------------------------
+ 1: UNIVERSAL RESET 
+--------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100.01%;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	vertical-align: baseline;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+	
+
+dl, ul, ol {
+	list-style: none;
+}
+
+dt, dd, li {
+	list-style: none;
+}
+
+
+/* clear
+--------------------*/
+
+.clear {
+	clear: both;
+} 
+
+/* table
+--------------------*/
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* blockquote
+--------------------*/
+blockquote, q {
+	quotes: none
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: none
+}
+
+/* --------------------------------------------------------------
+ 2: FONT RESET
+--------------------------------------------------------------- */
+body{
+    font:13px/1.231 Verdana,',Arial,Meiryo,"メイリオ","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3",Osaka,"MS Gothic","ＭＳ ゴシック",sans-serif;
+    *font-size:small;
+    *font:x-small;
+}
+ 
+select,input,button,textarea,button{
+    font:99% arial,helvetica,clean,sans-serif;
+}
+ 
+table{
+    font-size:inherit;
+    font:100%;
+}
+ 
+pre,code,kbd,samp,tt{
+    font-family:monospace;
+    *font-size:108%;
+    line-height:99%;
+}
+ 
+/* IE6 and IE7 Hack */
+* html body {font-family: 'ＭＳ Ｐゴシック',sans-serif;}
+*:first-child+html body {font-family: 'メイリオ','ＭＳ Ｐゴシック',sans-serif;}
+ 
+/* line-height（日本語） */
+body * {
+    line-height:1.38em;
+}
+
+
+/* --------------------------------------------------------------
+ 3: LINK SETTING
+--------------------------------------------------------------- */
+a{font-weight: 700;}
+a:link { text-decoration: underline; color:#1d7dbe;}
+a:visited { text-decoration: none;color:#1d7dbe;}
+a:hover { text-decoration:none;color:#1d7dbe;}
+a:focus { outline: none;color:#1d7dbe;}
+a:active { text-decoration: none; color:#1d7dbe;}
+
+
+
+/* --------------------------------------------------------------
+ 4: CLEARFIX
+--------------------------------------------------------------- */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+.clearfix { display: inline-block; }
+.clearfix { display: block; }
+
+
+ 
+/* Hides from IE-mac */
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+/* End hide from IE-mac */
+
+
+/* It is a code in which clear is done as for the main browser
+----------------------------------------------------------*/
+
+div:after {/*for modern browser*/
+	display: block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}

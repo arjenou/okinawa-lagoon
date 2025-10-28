@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+
+<!-- Mirrored from okinawa-lagoon.jp/contact/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Oct 2025 04:19:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/import.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/respond.js" type="text/javascript"></script>
+    <script src="../js/common.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"
+        integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .EN {
+            display: none;
+        }
+
+        .KS {
+            display: none;
+        }
+
+        .CN {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("input.reset[type=button]").click(function () {
+                $("input[name=CNTTYPE]").val("");
+                $("input[name=USRNAME]").val("");
+                $("input[name=USRKANA]").val("");
+                $("input[name=MAILADR]").val("");
+                $("input[name=MAILADC]").val("");
+                $("input[name=ADDRESS]").val("");
+                $("input[name=TELNMR1]").val("");
+                $("input[name=TELNMR2]").val("");
+                $("textarea[name=CNTTEXT]").val("");
+                $("input[name=AGREE]").prop("checked", false);
+            });
+        });
+
+        $(window).on('load resize', function () {
+            var w = $(window).width();
+            var x = 768;
+            if (w < x) {
+                $('.header_nav').load('../header_nav.html');
+                $('footer').load('../footer.html');
+
+                //画面サイズが768px未満のときの処理
+            } else {
+                //それ以外のときの処理
+                $('.header_nav').load('../header_nav.html');
+                $('footer').load('../footer.html');
+            }
+        });
+    </script>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <div id="loader-bg">
+        <div class="loading"></div>
+        <div class="loading_text">Loading...</div>
+    </div>
+    <section id="container">
+
+        <!-- header start -->
+        <section class="header_nav">
+        </section>
+        <!-- header end -->
+        <!-- menu end -->
+        <!-- main start-->
+        <section id="main">
+            <div id="main_content">
+                <!-- pankuzu start-->
+                <!-- 
+            <div class="topicpath1">
+                <ol>
+                    <li>
+                        <a href="/" class="JP">ホーム</a>
+                        <a href="/" class="EN">Home</a>
+                        <a href="/" class="KS">ホーム</a>
+                        <a href="/" class="CN">ホーム</a>
+                    </li>
+                    <li>
+                        <span style="color:#e60012;" class="JP">お問合せフォーム</span>
+                        <span style="color:#e60012;" class="EN">Contact Us</span>
+                        <span style="color:#e60012;" class="KS">문의</span>
+                        <span style="color:#e60012;" class="CN">询问</span>
+                    </li>
+                </ol>
+            </div>
+			-->
+                <!-- pankuzu end-->
+
+
+                <h2>
+                    <img src="../img/top_access_icon.png" alt="お問い合わせ" style="max-width:54px;">
+                    <p class="jp">お問い合わせ</p>
+                    <p class="EN">Contact Us</p>
+                    <p class="KS">문의</p>
+                    <p class="CN">询问</p>
+                    <span></span>
+                </h2>
+
+                <form method="post" action="https://okinawa-lagoon.jp/contact/confirm.php">
+                    <div class="form_wrapper">
+                        <div class="list1">
+                            <p class="red">
+                                <span class="JP">※は必須項目です。</span>
+                                <span class="EN">※Required item</span>
+                                <span class="KS">※필수 항목</span>
+                                <span class="CN">※必填项目</span>
+                            </p>
+
+                            <table border="0" class="contactform">
+                                <tr>
+                                    <th>
+                                        <span class="JP">お問い合わせ項目</span>
+                                        <span class="EN">Inquiry Items</span>
+                                        <span class="KS">문의 항목</span>
+                                        <span class="CN">諮詢項目</span>
+                                        <span class="red">※</span>
+                                    </th>
+                                    <td>
+                                        <ul>
+                                                                                                                                    <li>
+                                                <label>
+                                                    <input type="radio" name="CNTTYPE" value="DAYチャーターについて" />
+                                                    <span class="JP">DAYチャーターについて</span>
+                                                    <span class="EN">About 1 Day Charter</span>
+                                                    <span class="KS">DAY전세 선박 에 대해서</span>
+                                                    <span class="CN">关于1日包租</span>
+                                                </label>
+                                            </li>
+                                                                                                                                                                                <li>
+                                                <label>
+                                                    <input type="radio" name="CNTTYPE" value="宿泊チャーターについて" />
+                                                    <span class="JP">宿泊チャーターについて</span>
+                                                    <span class="EN">About Overnight Charter</span>
+                                                    <span class="KS">숙박 전세 선박 에 대해서</span>
+                                                    <span class="CN">关于住宿包租</span>
+                                                </label>
+                                            </li>
+                                                                                                                                                                                <li>
+                                                <label>
+                                                    <input type="radio" name="CNTTYPE" value="予約変更/キャンセル" />
+                                                    <span class="JP">予約変更/キャンセル</span>
+                                                    <span class="EN">Change Reservation/Cancel</span>
+                                                    <span class="KS">예약 변경/취소</span>
+                                                    <span class="CN">预订变更/取消</span>
+                                                </label>
+                                            </li>
+                                                                                                                                                                                <li>
+                                                <label>
+                                                    <input type="radio" name="CNTTYPE" value="その他" />
+                                                    <span class="JP">その他</span>
+                                                    <span class="EN">Others</span>
+                                                    <span class="KS">기타</span>
+                                                    <span class="CN">另外</span>
+                                                </label>
+                                            </li>
+                                                                                                                                </ul>
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">氏名</span>
+                                        <span class="EN">Name</span>
+                                        <span class="KS">이름</span>
+                                        <span class="CN">姓名</span>
+                                        <span class="red">※</span>
+                                    </th>
+                                    <td>
+                                        <input type="text" name="USRNAME" class="question" value=""
+                                            required />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">フリガナ</span>
+                                        <span class="EN">Phonetic</span>
+                                        <span class="KS">독음</span>
+                                        <span class="CN">注音假名</span>
+                                    </th>
+                                    <td>
+                                        <input type="text" name="USRKANA" class="question" value=""
+                                            />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">メールアドレス</span>
+                                        <span class="EN">E-Mail</span>
+                                        <span class="KS">메일 주소</span>
+                                        <span class="CN">電子郵件</span>
+                                        <span class="red">※</span>
+                                    </th>
+                                    <td>
+                                        <input type="email" name="MAILADR" class="question"
+                                            value="" required />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">メールアドレス（確認）</span>
+                                        <span class="EN">E-Mail（Confirmation）</span>
+                                        <span class="KS">메일 주소（확인）</span>
+                                        <span class="CN">電子郵件（确认）</span>
+                                        <span class="red">※</span>
+                                    </th>
+                                    <td>
+                                        <input type="email" name="MAILADC" class="question"
+                                            value="" required />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">住所</span>
+                                        <span class="EN">Address</span>
+                                        <span class="KS">주소</span>
+                                        <span class="CN">地址</span>
+                                    </th>
+                                    <td>
+                                        <input type="text" name="ADDRESS" class="question"
+                                            value="" />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">電話番号</span>
+                                        <span class="EN">Phone Number</span>
+                                        <span class="KS">전화번호</span>
+                                        <span class="CN">电话号码</span>
+                                    </th>
+                                    <td>
+                                        <input type="tel" name="TELNBR1" class="question"
+                                            value="" />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">携帯番号</span>
+                                        <span class="EN">Mobile Phone Number</span>
+                                        <span class="KS">핸드폰번호</span>
+                                        <span class="CN">手机号码</span>
+                                    </th>
+                                    <td>
+                                        <input type="tel" name="TELNBR2" class="question"
+                                            value="" />
+                                                                            </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="JP">お問い合わせ内容</span>
+                                        <span class="EN">Inquiry Contents</span>
+                                        <span class="KS">문의 내용</span>
+                                        <span class="CN">諮詢內容</span>
+                                        <span class="red">※</span>
+                                    </th>
+                                    <td>
+                                        <textarea name="CNTTEXT" class="question"
+                                            required></textarea>
+                                                                            </td>
+                                </tr>
+                            </table>
+                            <div class="consent">
+                                <label>
+                                    <input type="checkbox" name="AGREE" required />
+                                    <span class="JP"><span style="color:#0698ba;">個人情報保護方針</span>に同意</span>
+                                    <span class=" EN">I agree to a privacy policy</span>
+                                        <span class="KS">개인정보보호방침에 둥의</span>
+                                        <span class="CN">同意个人信息保护方针</span>
+                                </label>
+                            </div>
+
+                            <div class="form_button">
+                                <input type="button" class="JP reset" value="入力内容クリア" />
+                                <input type="submit" class="JP" value="確認ページへ" />
+                                <input type="button" class="EN reset" value="Clear" />
+                                <input type="submit" class="EN" value="Confirmation" />
+                                <input type="button" class="KS reset" value="클리어" />
+                                <input type="submit" class="KS" value="확인" />
+                                <input type="button" class="CN reset" value="明确" />
+                                <input type="submit" class="CN" value="确认" />
+                            </div>
+                        </div>
+                </form>
+
+
+            </div>
+
+            <!-- end -->
+
+            <div class="content_box">
+                <h2>
+                    <img src="../img/contact_icon2.png" alt="お電話による問い合わせ" style="max-width:54px;">
+                    <p class="jp">お電話による問い合わせ</p>
+                    <p class="EN">Inquiries by telephone</p>
+                    <p class="KS">전화에 의한 문의</p>
+                    <p class="CN">电话咨询</p>
+                    <span></span>
+                </h2>
+                <table class="contactform jp">
+                    <tbody>
+                        <tr>
+                            <th>お問い合わせ番号</th>
+                            <td><a href="tel:09032032374">090-3203-2374</a></td>
+                        </tr>
+                        <tr>
+                            <th>担当</th>
+                            <td>西村達也</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="contactform EN">
+                    <tbody>
+                        <tr>
+                            <th>contact number</th>
+                            <td><a href="tel:09032032374">+81-90-3203-2374</a></td>
+                        </tr>
+                        <tr>
+                            <th>Person in charge</th>
+                            <td>Tatsuya Nishimura</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="contactform KS">
+                    <tbody>
+                        <tr>
+                            <th>니시무라 타츠야</th>
+                            <td><a href="tel:09032032374">+81-90-3203-2374</a></td>
+                        </tr>
+                        <tr>
+                            <th>담당</th>
+                            <td>니시무라 타츠야</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="contactform CN">
+                    <tbody>
+                        <tr>
+                            <th>聯絡電話</th>
+                            <td><a href="tel:09032032374">+81-90-3203-2374</a></td>
+                        </tr>
+                        <tr>
+                            <th>負責人</th>
+                            <td>西村達也</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            </div>
+        </section>
+        <!-- main end -->
+        <!-- footer start -->
+        <a href="#" class="topBtn" id="topBtn"><img src="../img/page_top.png" alt="" style="max-width: 56px;"></a>
+        <footer></footer>
+        <!-- footer end -->
+
+
+    </section>
+</body>
+
+
+<!-- Mirrored from okinawa-lagoon.jp/contact/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Oct 2025 04:19:17 GMT -->
+</html>

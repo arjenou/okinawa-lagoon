@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+okinawa-lagoon.jp	TRUE	/	FALSE	1999999999	PHPSESSID	bd69b626e5d6d0d8c12fa9161555c3f0
+

@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+
+<!-- Mirrored from okinawa-lagoon.jp/reserve/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Oct 2025 04:19:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../css/import.css">
+    <link rel="stylesheet" href="../css/style.css">	
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/respond.js" type="text/javascript"></script>
+    <script src="../js/common.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css" />
+    <script type="text/javascript">
+        $.ajaxSetup({
+            cache: false
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $.datepicker.setDefaults({
+                buttonImage: '../img/calendar.gif',
+                buttonImageOnly: true,
+                buttonText: null,
+                showButtonPanel: true,
+                numberOfMonths: 2,
+                nextText: "",
+                prevText: "",
+                dateFormat: 'yymmdd',
+                duration: 'fast',
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+            $('input.yyyymmddb').datepicker();
+            $('input.yyyymmddb').datepicker("option", "showOn", 'button');
+
+            $("input.reset[type=button]").click(function () {
+                $("input[name=PGMNAME]").val("");
+                $("input[name=BODDATE]").val("");
+                $("input[name=STAYDAY]").val("");
+                $("input[name=MEMBERS]").val("");
+
+                $("input[name=USRNAME]").val("");
+                $("input[name=USRKANA]").val("");
+                $("input[name=SEXKUBN]").val("");
+                $("input[name=BIRDATE]").val("");
+                $("input[name=ADDRESS]").val("");
+                $("input[name=TELNBR1]").val("");
+                $("input[name=TELNBR2]").val("");
+                $("input[name=MAILADR]").val("");
+                $("input[name=MAILADC]").val("");
+
+                $("input[name=PAYKUBN]").val("");
+
+                $("textarea[name=RSVTEXT]").val("");
+
+                $("input[name=AGREE]").prop("checked", false);
+            });
+        });
+
+        $(window).on('load resize', function () {
+            var w = $(window).width();
+            var x = 768;
+            if (w < x) {
+                $('.header_nav').load('../header_nav.html');
+                $('footer').load('../footer.html');
+
+                //画面サイズが768px未満のときの処理
+            } else {
+                //それ以外のときの処理
+                $('.header_nav').load('../header_nav.html');
+                $('footer').load('../footer.html');
+            }
+        });
+    </script>
+    <style type="text/css">
+        .EN {   display: none;  }
+        .KS {   display: none;  }
+        .CN {   display: none;  }
+        th {
+            text-align: left;
+        }
+
+.cal_wrapper {width: 100%;max-width: 1024px;margin: 0 auto;}
+.googlecal {margin: 0 auto;}
+.googlecal iframe {width: 100%;border: 0;}
+
+@media only screen and (min-width: 768px) {
+.cal_wrapper{width: 100%);} 
+.googlecal {width:100%;margin: 0 auto;}
+.googlecal iframe {width:100%}
+}
+
+
+    </style>
+</head>
+
+<body>
+<div id="loader-bg"><div class="loading"></div><div class="loading_text">Loading...</div></div>
+<section id="container">
+
+<!-- header start -->
+<section class="header_nav">
+</section>
+<!-- header end -->
+<!-- menu end -->
+<!-- main start-->
+<section id="main">
+<div id="main_content">
+
+            <!-- pankuzu start-->
+ 
+  <!--<div class="topicpath1">
+                <ol>
+                    <li>
+                        <a href="/" class="JP">ホーム</a>
+                        <a href="/" class="EN">Home</a>
+                        <a href="/" class="KS">ホーム</a>
+                        <a href="/" class="CN">ホーム</a>
+                    </li>
+                    <li>
+                        <span style="color:#e60012;" class="JP">予約申込フォーム</span>
+                        <span style="color:#e60012;" class="EN">予約申込フォーム(en)</span>
+                        <span style="color:#e60012;" class="KS">予約申込フォーム(ks)</span>
+                        <span style="color:#e60012;" class="CN">予約申込フォーム(cn)</span>
+                    </li>
+                </ol>
+            </div>-->
+			
+            <!-- pankuzu end-->
+
+          <!-- pnav_box start -->
+		  
+            <!-- <div class="main_title1" style="background: url(../img/reserve/1_01.png) no-repeat center center;background-size: cover;">-->
+                <!--<div class="maintitle_wrap1">-->
+                   <!-- <div class="maintitle_box">
+                        <ul>
+                            <li>
+                                <h2 class="font-size36" style="color: #fff;">
+                                    <span class="JP">予約申込フォーム</span>
+                                    <span class="EN">予約申込フォーム(en)</span>
+                                    <span class="KS">予約申込フォーム(ks)</span>
+                                    <span class="CN">予約申込フォーム(cn)</span>
+                                </h2>
+                            </li>
+                        </ul>
+                    <!--<</div>-->
+					<!-- maintitle_box -->
+                <!--<</div>-->
+                <!-- maintitle_wrap1 -->
+            <!--</div>-->
+			
+            <!-- pnav_box end -->
+
+<!--
+<section class="title_h3 title_h3_2">
+                <h3 class="font-size25 JP" style="color: #555;">予約申込フォーム</h3>
+                <h3 class="font-size25 EN" style="color: #555;">予約申込フォーム(en)</h3>
+                <h3 class="font-size25 KS" style="color: #555;">予約申込フォーム(ks)</h3>
+                <h3 class="font-size25 CN" style="color: #555;">予約申込フォーム(cn)</h3>
+            </section>			
+			-->
+            <!-- 予約申込フォーム start -->
+
+<h2>
+<img src="../img/top_reserve_icon.png" alt="予約申し込み" style="max-width:54px;">
+<p class="jp">予約申し込み</p>
+<p class="EN">Book</p>
+<p class="KS">예약 신청</p>
+<p class="CN">预订</p>
+<span></span>
+</h2>
+
+                <form method="post" action="https://okinawa-lagoon.jp/reserve/confirm.php">
+				<div class="form_wrapper">
+<div class="cal_wrapper">
+<div class="googlecal">
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=okinawa.lagoon%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FTokyo&amp;showPrint=0&amp;showTabs=0" width="1024" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+</div>
+<div class="list1">
+<p class="red">
+<span class="JP">※は必須項目です。</span>
+<span class="EN">※Required item</span>
+<span class="KS">※필수 항목</span>
+<span class="CN">※必填项目</span>
+</p>
+<table border="1" class="question font-size14">
+<tr>
+<th colspan="99" class="light_blue">
+<span class="JP">◆クルーズ希望日程</span>
+<span class="EN">◆Cruise Application</span>
+<span class="KS">◆크루즈 희망 일정</span>
+<span class="CN">◆希望出航日程</span>
+</th>
+</tr>
+<tr>
+<td>
+<span class="JP">プログラム名</span>
+<span class="EN">Program Name</span>
+<span class="KS">프로그램명</span>
+<span class="CN">行程名</span>
+<span class="red">※</span>
+</td>
+<td>
+<ul>
+<li>
+<label>
+<input type="radio" name="PGMNAME" value="半日チャーター" />
+<span class="JP">半日チャーター</span>
+<span class="EN">Half a Day Charter</span>
+<span class="KS">반나절</span>
+<span class="CN">半天行程包船</span>
+</label>
+</li>
+<li>
+<label>
+<input type="radio" name="PGMNAME" value="DAYチャーター" />
+<span class="JP">DAYチャーター</span>
+<span class="EN">1 Day Charter</span>
+<span class="KS">DAY전세 선박</span>
+<span class="CN">1日來回包船</span>
+</label>
+</li>
+<li>
+<label>
+<input type="radio" name="PGMNAME" value="宿泊チャーター" />
+<span class="JP">宿泊チャーター</span>
+<span class="EN">Overnight Charter</span>
+<span class="KS">숙박 전세 선박</span>
+<span class="CN">包船住宿</span>
+</label>
+</li>
+</ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">乗船日</span>
+                                <span class="EN">Boarding Date</span>
+                                <span class="KS">요트를 타는 날짜</span>
+                                <span class="CN">乘船日</span>
+								<span class="red">※</span>
+                            </td>
+                            <td class="input_calendar">
+                                <input type="date" name="BODDATE" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">宿泊日数</span>
+                                <span class="EN">Number of Nights</span>
+                                <span class="KS">숙박하는 이수</span>
+                                <span class="CN">住宿日数</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <select name="STAYDAY" required>
+                                                                                                            <option value="0">0</option>
+                                                                                                                                                <option value="1">1</option>
+                                                                                                                                                <option value="2">2</option>
+                                                                                                                                                <option value="3">3</option>
+                                                                                                                                                <option value="4">4</option>
+                                                                                                                                                <option value="5">5</option>
+                                                                                                                                                <option value="6">6</option>
+                                                                                                                                                <option value="7">7</option>
+                                                                                                        </select>
+                                <span class="JP">泊</span>
+                                <span class="EN">night</span>
+                                <span class="KS">박</span>
+                                <span class="CN">晚上</span>
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">乗船者数</span>
+                                <span class="EN">Number of Passengers</span>
+                                <span class="KS">요트를 타는 인원수</span>
+                                <span class="CN">乘船的人数</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <select name="MEMBERS" required>
+                                                                                                            <option value="1">1</option>
+                                                                                                                                                <option value="2">2</option>
+                                                                                                                                                <option value="3">3</option>
+                                                                                                                                                <option value="4">4</option>
+                                                                                                                                                <option value="5">5</option>
+                                                                                                                                                <option value="6">6</option>
+                                                                                                                                                <option value="7">7</option>
+                                                                                                                                                <option value="8">8</option>
+                                                                                                                                                <option value="9">9</option>
+                                                                                                                                                <option value="10">10</option>
+                                                                                                        </select>
+                                <span class="JP">名</span>
+                                <span class="EN">person</span>
+                                <span class="KS">사람</span>
+                                <span class="CN">人</span>
+                                                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="9" class="light_blue">
+                                <span class="JP">◆代表者情報</span>
+                                <span class="EN">◆Representative Information</span>
+                                <span class="KS">◆대표자정보</span>
+                                <span class="CN">◆代表人信息</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">氏名</span>
+                                <span class="EN">Name</span>
+                                <span class="KS">이름</span>
+                                <span class="CN">姓名</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="text" name="USRNAME" class="question" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">フリガナ</span>
+                                <span class="EN">Phonetic</span>
+                                <span class="KS">독음</span>
+                                <span class="CN">注音假名</span>
+                            </td>
+                            <td>
+                                <input type="text" name="USRKANA" class="question" value="" />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">性別</span>
+                                <span class="EN">Gender</span>
+                                <span class="KS">성볠</span>
+                                <span class="CN">性别</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                                                                                <label>
+                                    <input type="radio" name="SEXKUBN" value="男性">
+                                    <span class="JP">男性</span>
+                                    <span class="EN">Male</span>
+                                    <span class="KS">남성</span>
+                                    <span class="CN">男人</span>
+                                </label>
+                                                                                                                                <label>
+                                    <input type="radio" name="SEXKUBN" value="女性">
+                                    <span class="JP">女性</span>
+                                    <span class="EN">Female</span>
+                                    <span class="KS">여성</span>
+                                    <span class="CN">女子</span>
+                                </label>
+                                                                                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">生年月日</span>
+                                <span class="EN">Date of Birth</span>
+                                <span class="KS">생년월일</span>
+                                <span class="CN">出生年月日</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="date" name="BIRDATE" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">住所</span>
+                                <span class="EN">Address</span>
+                                <span class="KS">주소</span>
+                                <span class="CN">地址</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="text" name="ADDRESS" class="question" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">電話番号</span>
+                                <span class="EN">Phone Number</span>
+                                <span class="KS">전화번호</span>
+                                <span class="CN">电话号码</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="tel" name="TELNBR1" class="question" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">携帯番号</span>
+                                <span class="EN">Mobile Phone Number</span>
+                                <span class="KS">핸드폰</span>
+                                <span class="CN">手机号码</span>
+                            </td>
+                            <td>
+                                <input type="tel" name="TELNBR2" class="question" value="" />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">メールアドレス</span>
+                                <span class="EN">E-Mail</span>
+                                <span class="KS">메일주소</span>
+                                <span class="CN">電子郵件</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="email" name="MAILADR" class="question" value="" required />
+                                                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">メールアドレス（確認）</span>
+                                <span class="EN">E-Mail（confirm）</span>
+                                <span class="KS">메일주소（확인）</span>
+                                <span class="CN">電子郵件（确认）</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <input type="email" name="MAILADC" class="question" value="" required />
+                                                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="9" class="light_blue">
+                                <span class="JP">◆お支払方法</span>
+                                <span class="EN">◆Payment Method</span>
+                                <span class="KS">◆지불 방법</span>
+                                <span class="CN">◆付款方式</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">お支払方法</span>
+                                <span class="EN">Payment Method</span>
+                                <span class="KS">지불 방법</span>
+                                <span class="CN">付款方式</span>
+								<span class="red">※</span>
+                            </td>
+                            <td>
+                                <ul>
+                                                                                                            <li>
+                                        <label>
+                                            <input type="radio" name="PAYKUBN" value="銀行振込" />
+                                            <span class="JP">銀行振込</span>
+                                            <span class="EN">Bank Transfer</span>
+                                            <span class="KS">은행납부</span>
+                                            <span class="CN">银行汇款</span>
+                                        </label>
+                                    </li>
+                                                                                                                                                <li>
+                                        <label>
+                                            <input type="radio" name="PAYKUBN" value="クレジットカード（VISA、Master、AMEX、JCB、Diners、Discover）" />
+                                            <span class="JP">クレジットカード（VISA、Master、AMEX、JCB、Diners、Discover）</span>
+                                            <span class="EN">Creadit Card（VISA、Master、AMEX、JCB、Diners、Discover）</span>
+                                            <span class="KS">신용카드（VISA、Master、AMEX、JCB、Diners、Discover）</span>
+                                            <span class="CN">信用卡（VISA、Master、AMEX、JCB、Diners、Discover）</span>
+                                        </label>
+                                    </li>
+                                                                                                                                                <li>
+                                        <label>
+                                            <input type="radio" name="PAYKUBN" value="現金" />
+                                            <span class="JP">現金</span>
+                                            <span class="EN">Cash</span>
+                                            <span class="KS">현금</span>
+                                            <span class="CN">现金</span>
+                                        </label>
+                                    </li>
+                                                                                                        </ul>
+                                                            </td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="9" class="light_blue">
+                                <span class="JP">◆その他</span>
+                                <span class="EN">◆Others</span>
+                                <span class="KS">◆기타</span>
+                                <span class="CN">◆另外</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="JP">リクエスト、希望、質問、他</span>
+                                <span class="EN">Please write any requests, wishes or questions etc if you have.</span>
+                                <span class="KS">리퀘스트, 희망, 질문 등이 있으면 기입해 주세요</span>
+                                <span class="CN">如果有要求,希望,问题的话,请填写。</span>
+                            </td>
+                            <td>
+                                <textarea name="RSVTEXT" class="question" required></textarea>
+                                                            </td>
+                        </tr>
+</table>
+
+<div class="consent">
+<label>
+<input type="checkbox" name="AGREE" required />
+<span class="JP"><span style="color:#0698ba;">個人情報保護方針</span>に同意</span>
+<span class="EN">I agree to a privacy policy</span>
+<span class="KS">개인정보보호방침에 둥의</span>
+<span class="CN">同意个人信息保护方针</span>
+</label>
+</div>
+<div class="form_button">
+<input type="button" class="JP reset" value="入力内容クリア" />
+<input type="submit" class="JP" value="確認ページへ" />
+<input type="button" class="EN reset" value="Clear" />
+<input type="submit" class="EN" value="Confirmation" />
+<input type="button" class="KS reset" value="클리어" />
+<input type="submit" class="KS" value="확인" />
+<input type="button" class="CN reset" value="明确" />
+<input type="submit" class="CN" value="确认" />
+</div>
+
+</div>
+</div>
+</form>
+         <!-- end -->
+
+</div>
+</section>
+<!-- main end -->
+<!-- footer start -->
+<a href="#" class="topBtn" id="topBtn"><img src="../img/page_top.png" alt="" style="max-width: 56px;"></a>
+<footer></footer>
+<!-- footer end -->
+
+
+</section>
+</body>
+
+<!-- Mirrored from okinawa-lagoon.jp/reserve/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Oct 2025 04:19:17 GMT -->
+</html>
