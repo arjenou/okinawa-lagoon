@@ -1,4 +1,11 @@
-﻿<style type="text/css">
+﻿<script type="text/javascript">
+  // Detect if we're in a subdirectory or at root
+  var basePath = '';
+  if (window.location.pathname.split('/').filter(function(x) { return x; }).length > 1) {
+    basePath = '../';
+  }
+</script>
+<style type="text/css">
   .JP {
     display: none;
   }
@@ -18,9 +25,9 @@
 <!--<script language="JavaScript" src="/js/https-redirect.js"></script>-->
 <header role="banner">
   <h1>
-    <a href="/index.html" class="top"><img src="/img/pasi-log.jpg" alt="PASI logo"
-        style="max-width: 65.5px; height: auto;" /></a><a href="/index.html" class="in"><img src="/img/pasi-log.jpg"
-        alt="PASI logo" style="max-width: 65.5px; height: auto;" /></a>
+    <a href="index.html" class="top" data-root="true"><img src="img/pasi-log.jpg" alt="PASI logo" data-root="true"
+        style="max-width: 65.5px; height: auto;" /></a><a href="index.html" class="in" data-root="true"><img src="img/pasi-log.jpg"
+        alt="PASI logo" data-root="true" style="max-width: 65.5px; height: auto;" /></a>
   </h1>
   <div class="sns sns_sp">
     <a href="https://www.instagram.com/okinawa_lagoon_yachtcharter/?hl=ja" target="_blank" class="fa"><i
@@ -77,62 +84,62 @@
     </li>
 
     <li>
-      <a href="/index.html" class="JP">TOP</a><a href="/index.html" class="EN">TOP</a><a href="/index.html"
-        class="KS">TOP</a><a href="/index.html" class="CN">TOP</a>
+      <a href="index.html" class="JP" data-root="true">TOP</a><a href="index.html" class="EN" data-root="true">TOP</a><a href="index.html"
+        class="KS" data-root="true">TOP</a><a href="index.html" class="CN" data-root="true">TOP</a>
     </li>
     <li>
-      <a href="/day_charter/index.html" class="JP">日帰りカタマラン・クルージング</a><a href="/day_charter/index.html" class="EN">1 Day
-        Carter</a><a href="/day_charter/index.html" class="KS">DAY전세 선박</a><a href="/day_charter/index.html"
-        class="CN">1日來回包船</a>
+      <a href="day_charter/index.html" class="JP" data-root="true">日帰りカタマラン・クルージング</a><a href="day_charter/index.html" class="EN" data-root="true">1 Day
+        Carter</a><a href="day_charter/index.html" class="KS" data-root="true">DAY전세 선박</a><a href="day_charter/index.html"
+        class="CN" data-root="true">1日來回包船</a>
     </li>
     <li>
-      <a href="/stay_charter/index.html" class="JP">宿泊チャーター</a><a href="/stay_charter/index.html" class="EN">Overnight
-        Charter</a><a href="/stay_charter/index.html" class="KS">숙박 전세 선박</a><a href="/stay_charter/index.html"
-        class="CN">包船住宿</a>
+      <a href="stay_charter/index.html" class="JP" data-root="true">宿泊チャーター</a><a href="stay_charter/index.html" class="EN" data-root="true">Overnight
+        Charter</a><a href="stay_charter/index.html" class="KS" data-root="true">숙박 전세 선박</a><a href="stay_charter/index.html"
+        class="CN" data-root="true">包船住宿</a>
     </li>
     <li>
-      <a href="/option/index.html" class="JP">オプション・サービス</a><a href="/option/index.html" class="EN">Options and
-        Services</a><a href="/option/index.html" class="KS">옵셴 서비스</a><a href="/option/index.html" class="CN">可选择的服务</a>
+      <a href="option/index.html" class="JP" data-root="true">オプション・サービス</a><a href="option/index.html" class="EN" data-root="true">Options and
+        Services</a><a href="option/index.html" class="KS" data-root="true">옵셴 서비스</a><a href="option/index.html" class="CN" data-root="true">可选择的服务</a>
     </li>
     <li>
-      <a href="/used_boat/index.html" class="JP">船の紹介</a><a href="/used_boat/index.html" class="EN">Features of the
-        yacht used</a><a href="/used_boat/index.html" class="KS">사용하는 요트의 소개</a><a href="/used_boat/index.html"
-        class="CN">介紹遊艇</a>
+      <a href="used_boat/index.html" class="JP" data-root="true">船の紹介</a><a href="used_boat/index.html" class="EN" data-root="true">Features of the
+        yacht used</a><a href="used_boat/index.html" class="KS" data-root="true">사용하는 요트의 소개</a><a href="used_boat/index.html"
+        class="CN" data-root="true">介紹遊艇</a>
     </li>
     <li>
       <button class="pegein">
-        <a href="/index.html#access"><span class="JP">アクセス</span><span class="EN">Access</span><span
+        <a href="index.html#access" data-root="true"><span class="JP">アクセス</span><span class="EN">Access</span><span
             class="KS">액세스</span><span class="CN">地點</span></a>
       </button>
     </li>
     <li>
-      <a href="/reserve/index.html" class="JP">予約申し込み</a><a href="/reserve/index.html" class="EN">Book</a><a
-        href="/reserve/index.html" class="KS">예약 신청</a><a href="/reserve/index.html" class="CN">預約申請</a>
+      <a href="reserve/index.html" class="JP" data-root="true">予約申し込み</a><a href="reserve/index.html" class="EN" data-root="true">Book</a><a
+        href="reserve/index.html" class="KS" data-root="true">예약 신청</a><a href="reserve/index.html" class="CN" data-root="true">預約申請</a>
     </li>
     <li class="menu_space1">
-      <a href="/contact/index.html" class="JP">問い合わせ</a><a href="/contact/index.html" class="EN">Contact Us</a><a
-        href="/contact/index.html" class="KS">문의</a><a href="/contact/index.html" class="CN">询问</a>
+      <a href="contact/index.html" class="JP" data-root="true">問い合わせ</a><a href="contact/index.html" class="EN" data-root="true">Contact Us</a><a
+        href="contact/index.html" class="KS" data-root="true">문의</a><a href="contact/index.html" class="CN" data-root="true">询问</a>
     </li>
     <li class="bar"></li>
     <li class="menu_space2">
-      <a href="/policy/index.html" class="JP">個人情報保護方針</a><a href="/policy/index.html" class="EN">Privacy Policy</a><a
-        href="/policy/index.html" class="KS">개인 정보 보호 방침</a><a href="/policy/index.html" class="CN">个人信息保护方针</a>
+      <a href="policy/index.html" class="JP" data-root="true">個人情報保護方針</a><a href="policy/index.html" class="EN" data-root="true">Privacy Policy</a><a
+        href="policy/index.html" class="KS" data-root="true">개인 정보 보호 방침</a><a href="policy/index.html" class="CN" data-root="true">个人信息保护方针</a>
     </li>
     <li>
-      <a href="/policy/index.html#tokutei" class="JP">特定商取引法に基づく表記</a><a href="/policy/index.html#tokutei"
-        class="EN">Notation based on Specified Commercial
-        Transaction Law</a><a href="/policy/index.html#tokutei" class="KS">특정 상거래법의 표기</a><a
-        href="/policy/index.html#tokutei" class="CN">特定交易方法的书写方式</a>
+      <a href="policy/index.html#tokutei" class="JP" data-root="true">特定商取引法に基づく表記</a><a href="policy/index.html#tokutei"
+        class="EN" data-root="true">Notation based on Specified Commercial
+        Transaction Law</a><a href="policy/index.html#tokutei" class="KS" data-root="true">특정 상거래법의 표기</a><a
+        href="policy/index.html#tokutei" class="CN" data-root="true">特定交易方法的书写方式</a>
     </li>
     <li>
-      <a href="/policy/index.html#copy" class="JP">著作権について</a><a href="/policy/index.html#copy"
-        class="EN">Copyrights</a><a href="/policy/index.html#copy" class="KS">저작권에 대해</a><a
-        href="/policy/index.html#copy" class="CN">著作权</a>
+      <a href="policy/index.html#copy" class="JP" data-root="true">著作権について</a><a href="policy/index.html#copy"
+        class="EN" data-root="true">Copyrights</a><a href="policy/index.html#copy" class="KS" data-root="true">저작권에 대해</a><a
+        href="policy/index.html#copy" class="CN" data-root="true">著作权</a>
     </li>
     <li>
-      <a href="/policy/index.html#disclaimers" class="JP">免責事項</a><a href="/policy/index.html#disclaimers"
-        class="EN">Disclaimers</a><a href="/policy/index.html#disclaimers" class="KS">면책 사항</a><a
-        href="/policy/index.html#disclaimers" class="CN">放棄</a>
+      <a href="policy/index.html#disclaimers" class="JP" data-root="true">免責事項</a><a href="policy/index.html#disclaimers"
+        class="EN" data-root="true">Disclaimers</a><a href="policy/index.html#disclaimers" class="KS" data-root="true">면책 사항</a><a
+        href="policy/index.html#disclaimers" class="CN" data-root="true">放棄</a>
     </li>
     <!-- <li>
 			<p class="drawer-menu_sns">
@@ -221,5 +228,30 @@
     var target = $(href);
     var position = target.offset().top - headerHeight;
     $("body,html").stop().animate({ scrollTop: position }, 500);
+  });
+
+  // Dynamically adjust paths based on current page location
+  $(document).ready(function() {
+    // Check if we're in a subdirectory
+    var pathParts = window.location.pathname.split('/').filter(function(x) { return x && x.indexOf('.html') === -1; });
+    var isInSubdir = pathParts.length > 0;
+    
+    if (isInSubdir) {
+      // We're in a subdirectory, prepend ../ to all root-relative links
+      $('a[data-root="true"], img[data-root="true"]').each(function() {
+        var $elem = $(this);
+        if ($elem.is('a')) {
+          var href = $elem.attr('href');
+          if (href && !href.startsWith('http') && !href.startsWith('../')) {
+            $elem.attr('href', '../' + href);
+          }
+        } else if ($elem.is('img')) {
+          var src = $elem.attr('src');
+          if (src && !src.startsWith('http') && !src.startsWith('../')) {
+            $elem.attr('src', '../' + src);
+          }
+        }
+      });
+    }
   });
 </script>
