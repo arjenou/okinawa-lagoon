@@ -29,6 +29,12 @@
 .text_slide{position: absolute;top: 0;bottom: 0; left: 0;right: 0;margin: auto;width: 80%;height: 3.2rem;text-align: center;box-sizing: border-box;color: #FFF;font-size: 2.125rem;z-index: 20;}
 .text_slide span{position: relative;display: inline-block;width: 100%;height: 100%;}
 
+/* Video play button overlay */
+.video-play-overlay{position: absolute;top: 0;left: 0;width: 100%;height: 100%;display: flex;align-items: center;justify-content: center;background: rgba(0,0,0,0.3);z-index: 30;cursor: pointer;}
+.play-button-circle{text-align: center;animation: pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform: scale(1);}50%{transform: scale(1.05);}}
+.video-play-overlay:hover .play-button-circle{transform: scale(1.1);transition: transform 0.3s ease;}
+
 @media only screen and (max-device-width: 0), screen and (max-width: 980px){
 .movieArea{height: calc(100vh - 80px);min-height: 400px;}
 .masthead-video{display: block;width: 100%;height: 100%;object-fit: cover;}

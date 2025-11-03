@@ -39,6 +39,54 @@ function showLanguage(lang) {
 
 jQuery(window).on('load', function() {
   jQuery('#loader-bg').hide();
+  
+  // Video autoplay handling for WeChat and mobile browsers
+  var video = document.getElementById('heroVideo');
+  var playButton = document.getElementById('videoPlayButton');
+  
+  if (video && playButton) {
+    // Try to play the video
+    var playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(function() {
+        // Autoplay started successfully
+        playButton.style.display = 'none';
+      }).catch(function(error) {
+        // Autoplay was prevented, show play button
+        console.log('Autoplay prevented:', error);
+        playButton.style.display = 'flex';
+      });
+    } else {
+      // Browser doesn't support Promise, show button as fallback
+      playButton.style.display = 'flex';
+    }
+    
+    // Play button click handler
+    playButton.addEventListener('click', function() {
+      video.play();
+      playButton.style.display = 'none';
+    });
+    
+    // Hide button when video starts playing
+    video.addEventListener('playing', function() {
+      playButton.style.display = 'none';
+    });
+    
+    // WeChat specific: try to play on any user interaction
+    var wechatAutoPlay = function() {
+      video.play();
+      document.removeEventListener('touchstart', wechatAutoPlay);
+      document.removeEventListener('WeixinJSBridgeReady', wechatAutoPlay);
+    };
+    
+    // Detect WeChat browser
+    var isWeChat = /MicroMessenger/i.test(navigator.userAgent);
+    if (isWeChat) {
+      document.addEventListener('WeixinJSBridgeReady', wechatAutoPlay, false);
+      document.addEventListener('touchstart', wechatAutoPlay, false);
+    }
+  }
 });
 
 	$(document).ready(function(){
