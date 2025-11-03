@@ -232,9 +232,17 @@
 
   // Dynamically adjust paths based on current page location
   $(document).ready(function() {
-    // Check if we're in a subdirectory
-    var pathParts = window.location.pathname.split('/').filter(function(x) { return x && x.indexOf('.html') === -1; });
-    var isInSubdir = pathParts.length > 0;
+    // Check if we're in a subdirectory by looking for known subdirectory names
+    var path = window.location.pathname;
+    var subdirs = ['day_charter', 'stay_charter', 'option', 'used_boat', 'contact', 'reserve', 'policy'];
+    var isInSubdir = false;
+    
+    for (var i = 0; i < subdirs.length; i++) {
+      if (path.indexOf('/' + subdirs[i] + '/') !== -1) {
+        isInSubdir = true;
+        break;
+      }
+    }
     
     if (isInSubdir) {
       // We're in a subdirectory, prepend ../ to all root-relative links
@@ -242,12 +250,12 @@
         var $elem = $(this);
         if ($elem.is('a')) {
           var href = $elem.attr('href');
-          if (href && !href.startsWith('http') && !href.startsWith('../')) {
+          if (href && href.indexOf('http') !== 0 && href.indexOf('../') !== 0 && href.indexOf('#') !== 0) {
             $elem.attr('href', '../' + href);
           }
         } else if ($elem.is('img')) {
           var src = $elem.attr('src');
-          if (src && !src.startsWith('http') && !src.startsWith('../')) {
+          if (src && src.indexOf('http') !== 0 && src.indexOf('../') !== 0) {
             $elem.attr('src', '../' + src);
           }
         }

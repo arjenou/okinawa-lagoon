@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-item {
+            background: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .test-item h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .test-item img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .success {
+            background: #4CAF50;
+            color: white;
+        }
+        .error {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>图片加载测试</h1>
+    <p>检查各个图片是否能正常加载</p>
+
+    <div class="test-item">
+        <h3>1. Logo (pasi-log.jpg)</h3>
+        <img src="img/pasi-log.jpg" alt="Logo" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ 加载失败';" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ 加载成功';">
+        <div class="status">加载中...</div>
+    </div>
+
+    <div class="test-item">
+        <h3>2. Main Content 1 Icon</h3>
+        <img src="img/main_content1_icon.png" alt="Icon 1" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ 加载失败';" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ 加载成功';">
+        <div class="status">加载中...</div>
+    </div>
+
+    <div class="test-item">
+        <h3>3. Main Content 1 Image</h3>
+        <img src="img/main_content1.png" alt="Main Content 1" style="max-width: 300px;" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ 加载失败';" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ 加载成功';">
+        <div class="status">加载中...</div>
+    </div>
+
+    <div class="test-item">
+        <h3>4. Main Content 2 Image</h3>
+        <img src="img/main_content2.png" alt="Main Content 2" style="max-width: 300px;" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ 加载失败';" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ 加载成功';">
+        <div class="status">加载中...</div>
+    </div>
+
+    <div class="test-item">
+        <h3>5. Scroll Icon</h3>
+        <img src="img/scroll.png" alt="Scroll" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ 加载失败';" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ 加载成功';">
+        <div class="status">加载中...</div>
+    </div>
+
+    <div class="test-item">
+        <h3>6. 视频测试</h3>
+        <video width="300" controls>
+            <source src="https://okinawa-lagoon.jp/img/movie.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+        <div class="status error">⚠️ 视频使用外部URL，本地没有该文件</div>
+    </div>
+
+    <hr style="margin: 30px 0;">
+    
+    <h2>访问说明</h2>
+    <p><strong>当前服务器地址：</strong></p>
+    <ul>
+        <li>本机访问: <a href="http://localhost:8080/okinawa-lagoon.jp/test-images.html">http://localhost:8080/okinawa-lagoon.jp/test-images.html</a></li>
+        <li>手机访问: <a href="http://192.168.0.143:8080/okinawa-lagoon.jp/test-images.html">http://192.168.0.143:8080/okinawa-lagoon.jp/test-images.html</a></li>
+    </ul>
+    <p><strong>主页访问：</strong></p>
+    <ul>
+        <li>本机: <a href="http://localhost:8080/okinawa-lagoon.jp/index.html">http://localhost:8080/okinawa-lagoon.jp/index.html</a></li>
+        <li>手机: <a href="http://192.168.0.143:8080/okinawa-lagoon.jp/index.html">http://192.168.0.143:8080/okinawa-lagoon.jp/index.html</a></li>
+    </ul>
+
+    <p><em>提示：请确保您的手机和电脑在同一个WiFi网络下</em></p>
+
+</body>
+</html>
+
+
