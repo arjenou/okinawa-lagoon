@@ -1,5 +1,17 @@
 ﻿
+// Language switching functionality - Initialize on page load
 $(function () {
+  // Set default language to Japanese and activate it immediately
+  var savedLang = $.cookie('lang');
+  if (!savedLang) {
+    savedLang = 'JP';
+    $.cookie('lang', 'JP', { path: '/' });
+  }
+  
+  // Show the selected language immediately
+  showLanguage(savedLang);
+  
+  // Responsive image handling
   var wid = $(window).width();
   if (wid < 550) {
     $(".imgChange").each(function () {
@@ -12,6 +24,18 @@ $(function () {
     });
   }
 });
+
+// Function to show the selected language and hide others
+function showLanguage(lang) {
+  // Hide all languages
+  $('.JP, .jp, .EN, .en, .KS, .ks, .CN, .cn').hide();
+  
+  // Show selected language (works with both uppercase and lowercase)
+  var langUpper = lang.toUpperCase();
+  var langLower = lang.toLowerCase();
+  
+  $('.' + langUpper + ', .' + langLower).show();
+}
 
 jQuery(window).on('load', function() {
   jQuery('#loader-bg').hide();

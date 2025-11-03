@@ -57,13 +57,25 @@
             var w = $(window).width();
             var x = 768;
             if (w < x) {
-                $('.header_nav').load('../header_nav.html');
+                $('.header_nav').load('../header_nav.html', function() {
+                    // Re-apply language settings after header loads
+                    var savedLang = $.cookie('lang') || 'JP';
+                    if (typeof showLanguage === 'function') {
+                        showLanguage(savedLang);
+                    }
+                });
                 $('footer').load('../footer.html');
 
                 //画面サイズが768px未満のときの処理
             } else {
                 //それ以外のときの処理
-                $('.header_nav').load('../header_nav.html');
+                $('.header_nav').load('../header_nav.html', function() {
+                    // Re-apply language settings after header loads
+                    var savedLang = $.cookie('lang') || 'JP';
+                    if (typeof showLanguage === 'function') {
+                        showLanguage(savedLang);
+                    }
+                });
                 $('footer').load('../footer.html');
             }
         });
