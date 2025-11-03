@@ -30,7 +30,8 @@
 .text_slide span{position: relative;display: inline-block;width: 100%;height: 100%;}
 
 @media only screen and (max-device-width: 0), screen and (max-width: 980px){
-.movieArea{height: 100%;}
+.movieArea{height: calc(100vh - 80px);min-height: 400px;}
+.masthead-video{display: block;width: 100%;height: 100%;object-fit: cover;}
 }
 /* アニメーション */
 .text_slide span.a1{animation: ShiftText1 20s linear infinite;}
