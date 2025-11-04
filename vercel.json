@@ -1,5 +1,16 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "rewrites": [
+    { "source": "/", "destination": "/okinawa-lagoon.jp/index.html" },
+    { "source": "/contact/(.*)", "destination": "/okinawa-lagoon.jp/contact/$1" },
+    { "source": "/day_charter/(.*)", "destination": "/okinawa-lagoon.jp/day_charter/$1" },
+    { "source": "/stay_charter/(.*)", "destination": "/okinawa-lagoon.jp/stay_charter/$1" },
+    { "source": "/reserve/(.*)", "destination": "/okinawa-lagoon.jp/reserve/$1" },
+    { "source": "/option/(.*)", "destination": "/okinawa-lagoon.jp/option/$1" },
+    { "source": "/used_boat/(.*)", "destination": "/okinawa-lagoon.jp/used_boat/$1" },
+    { "source": "/policy/(.*)", "destination": "/okinawa-lagoon.jp/policy/$1" },
+    { "source": "/css/(.*)", "destination": "/okinawa-lagoon.jp/css/$1" },
+    { "source": "/js/(.*)", "destination": "/okinawa-lagoon.jp/js/$1" },
+    { "source": "/img/(.*)", "destination": "/okinawa-lagoon.jp/img/$1" }
+  ]
 }
 
