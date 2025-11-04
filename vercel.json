@@ -1,3 +1,6 @@
 {
-  "version": 2
+  "version": 2,
+  "installCommand": "npm install",
+  "buildCommand": "echo 'Building API functions...'",
+  "outputDirectory": "okinawa-lagoon.jp"
 }
