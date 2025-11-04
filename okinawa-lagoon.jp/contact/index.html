@@ -171,7 +171,8 @@
                     '電話番号': $("input[name='電話番号']").val(),
                     '携帯番号': $("input[name='携帯番号']").val(),
                     'お問い合わせ内容': $("textarea[name='お問い合わせ内容']").val(),
-                    'formType': 'contact'
+                    'formType': 'contact',
+                    'language': getCurrentLanguage()
                 };
                 
                 console.log('📦 Form data collected:', formData);

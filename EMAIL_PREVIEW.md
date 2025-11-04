@@ -27,7 +27,7 @@ The email features:
 ---
 
 **🛥️ 新しいお問い合わせ**  
-*Okinawa Lagoon Yacht Charter*
+*PASI*
 
 ---
 
