@@ -1,25 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/okinawa-lagoon.jp/$1"
-    }
-  ],
   "rewrites": [
     {
       "source": "/",
       "destination": "/okinawa-lagoon.jp/index.html"
+    },
+    {
+      "source": "/okinawa-lagoon.jp/(.*)",
+      "destination": "/okinawa-lagoon.jp/$1"
     }
   ]
 }
