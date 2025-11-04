@@ -39,16 +39,34 @@
 
     <script type="text/javascript">
         $(function () {
+            // Set reply-to email automatically
+            $("input[name='メールアドレス']").on('input', function() {
+                $("input[name='_replyto']").val($(this).val());
+            });
+            
+            // Email validation on form submit
+            $("form").on('submit', function(e) {
+                var email1 = $("input[name='メールアドレス']").val();
+                var email2 = $("input[name='メールアドレス確認']").val();
+                
+                if (email1 !== email2) {
+                    e.preventDefault();
+                    alert('メールアドレスが一致しません。\nE-mail addresses do not match.\n邮箱地址不一致。');
+                    return false;
+                }
+            });
+            
+            // Reset button
             $("input.reset[type=button]").click(function () {
-                $("input[name=CNTTYPE]").val("");
-                $("input[name=USRNAME]").val("");
-                $("input[name=USRKANA]").val("");
-                $("input[name=MAILADR]").val("");
-                $("input[name=MAILADC]").val("");
-                $("input[name=ADDRESS]").val("");
-                $("input[name=TELNMR1]").val("");
-                $("input[name=TELNMR2]").val("");
-                $("textarea[name=CNTTEXT]").val("");
+                $("input[name='お問い合わせ項目']").prop("checked", false);
+                $("input[name='氏名']").val("");
+                $("input[name='フリガナ']").val("");
+                $("input[name='メールアドレス']").val("");
+                $("input[name='メールアドレス確認']").val("");
+                $("input[name='住所']").val("");
+                $("input[name='電話番号']").val("");
+                $("input[name='携帯番号']").val("");
+                $("textarea[name='お問い合わせ内容']").val("");
                 $("input[name=AGREE]").prop("checked", false);
             });
         });
@@ -130,7 +148,13 @@
                     <span></span>
                 </h2>
 
-                <form method="post" action="https://okinawa-lagoon.jp/contact/confirm.php">
+                <form method="post" action="https://formsubmit.co/wangyunjie1110@gmail.com">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="新しいお問い合わせ - Okinawa Lagoon">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    
                     <div class="form_wrapper">
                         <div class="list1">
                             <p class="red">
@@ -153,7 +177,7 @@
                                         <ul>
                                             <li>
                                                 <label>
-                                                    <input type="radio" name="CNTTYPE" value="日帰りカタマラン・クルージングについて" />
+                                                    <input type="radio" name="お問い合わせ項目" value="日帰りカタマラン・クルージングについて" required />
                                                     <span class="JP">日帰りカタマラン・クルージングについて</span>
                                                     <span class="EN">About 1 Day Charter</span>
                                                     <span class="KS">DAY전세 선박 에 대해서</span>
@@ -162,7 +186,7 @@
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="radio" name="CNTTYPE" value="宿泊チャーターについて" />
+                                                    <input type="radio" name="お問い合わせ項目" value="宿泊チャーターについて" />
                                                     <span class="JP">宿泊チャーターについて</span>
                                                     <span class="EN">About Overnight Charter</span>
                                                     <span class="KS">숙박 전세 선박 에 대해서</span>
@@ -171,7 +195,7 @@
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="radio" name="CNTTYPE" value="予約変更/キャンセル" />
+                                                    <input type="radio" name="お問い合わせ項目" value="予約変更/キャンセル" />
                                                     <span class="JP">予約変更/キャンセル</span>
                                                     <span class="EN">Change Reservation/Cancel</span>
                                                     <span class="KS">예약 변경/취소</span>
@@ -180,7 +204,7 @@
                                             </li>
                                             <li>
                                                 <label>
-                                                    <input type="radio" name="CNTTYPE" value="その他" />
+                                                    <input type="radio" name="お問い合わせ項目" value="その他" />
                                                     <span class="JP">その他</span>
                                                     <span class="EN">Others</span>
                                                     <span class="KS">기타</span>
@@ -199,7 +223,7 @@
                                         <span class="red">※</span>
                                     </th>
                                     <td>
-                                        <input type="text" name="USRNAME" class="question" value="" required />
+                                        <input type="text" name="氏名" class="question" value="" required />
                                     </td>
                                 </tr>
                                 <tr>
@@ -210,7 +234,7 @@
                                         <span class="CN">注音假名</span>
                                     </th>
                                     <td>
-                                        <input type="text" name="USRKANA" class="question" value="" />
+                                        <input type="text" name="フリガナ" class="question" value="" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -222,7 +246,8 @@
                                         <span class="red">※</span>
                                     </th>
                                     <td>
-                                        <input type="email" name="MAILADR" class="question" value="" required />
+                                        <input type="email" name="メールアドレス" class="question" value="" required />
+                                        <input type="hidden" name="_replyto" class="email-for-reply" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -234,7 +259,7 @@
                                         <span class="red">※</span>
                                     </th>
                                     <td>
-                                        <input type="email" name="MAILADC" class="question" value="" required />
+                                        <input type="email" name="メールアドレス確認" class="question" value="" required />
                                     </td>
                                 </tr>
                                 <tr>
@@ -245,7 +270,7 @@
                                         <span class="CN">地址</span>
                                     </th>
                                     <td>
-                                        <input type="text" name="ADDRESS" class="question" value="" />
+                                        <input type="text" name="住所" class="question" value="" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -256,7 +281,7 @@
                                         <span class="CN">电话号码</span>
                                     </th>
                                     <td>
-                                        <input type="tel" name="TELNBR1" class="question" value="" />
+                                        <input type="tel" name="電話番号" class="question" value="" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -267,7 +292,7 @@
                                         <span class="CN">手机号码</span>
                                     </th>
                                     <td>
-                                        <input type="tel" name="TELNBR2" class="question" value="" />
+                                        <input type="tel" name="携帯番号" class="question" value="" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -279,7 +304,7 @@
                                         <span class="red">※</span>
                                     </th>
                                     <td>
-                                        <textarea name="CNTTEXT" class="question" required></textarea>
+                                        <textarea name="お問い合わせ内容" class="question" required></textarea>
                                     </td>
                                 </tr>
                             </table>
@@ -324,11 +349,11 @@
                     <tbody>
                         <tr>
                             <th>お問い合わせ番号</th>
-                            <td><a href="tel:09032032374">先默认空白</a></td>
+                            <td><a href="tel:07085611257">070-8561-1257</a></td>
                         </tr>
                         <tr>
                             <th>担当</th>
-                            <td>先默认空白</td>
+                            <td>Andy</td>
                         </tr>
                     </tbody>
                 </table>
