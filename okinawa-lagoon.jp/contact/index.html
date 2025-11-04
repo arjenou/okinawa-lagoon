@@ -39,21 +39,67 @@
 
     <script type="text/javascript">
         $(function () {
-            // Set reply-to email automatically
-            $("input[name='メールアドレス']").on('input', function() {
-                $("input[name='_replyto']").val($(this).val());
-            });
-            
-            // Email validation on form submit
-            $("form").on('submit', function(e) {
+            // Email validation and form submission
+            $("#contactForm").on('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate emails match
                 var email1 = $("input[name='メールアドレス']").val();
                 var email2 = $("input[name='メールアドレス確認']").val();
                 
                 if (email1 !== email2) {
-                    e.preventDefault();
                     alert('メールアドレスが一致しません。\nE-mail addresses do not match.\n邮箱地址不一致。');
                     return false;
                 }
+                
+                // Check honeypot (spam protection)
+                if ($("input[name='_honey']").val() !== '') {
+                    return false;
+                }
+                
+                // Collect form data
+                var formData = {
+                    'お問い合わせ項目': $("input[name='お問い合わせ項目']:checked").val(),
+                    '氏名': $("input[name='氏名']").val(),
+                    'フリガナ': $("input[name='フリガナ']").val(),
+                    'メールアドレス': email1,
+                    '住所': $("input[name='住所']").val(),
+                    '電話番号': $("input[name='電話番号']").val(),
+                    '携帯番号': $("input[name='携帯番号']").val(),
+                    'お問い合わせ内容': $("textarea[name='お問い合わせ内容']").val()
+                };
+                
+                // Disable submit button
+                var $submitBtn = $(this).find('input[type="submit"]');
+                $submitBtn.prop('disabled', true).val('送信中...');
+                
+                // Send to API
+                $.ajax({
+                    url: '/api/contact',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        alert('お問い合わせを受け付けました。ありがとうございます。\n\nYour inquiry has been received. Thank you!\n\n您的咨询已收到。谢谢！');
+                        // Reset form
+                        $("#contactForm")[0].reset();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('送信に失敗しました。もう一度お試しください。\n\nFailed to send. Please try again.\n\n发送失败，请重试。');
+                    },
+                    complete: function() {
+                        // Re-enable submit button
+                        $submitBtn.prop('disabled', false);
+                        var lang = $.cookie('lang') || 'JP';
+                        if (lang === 'JP') $submitBtn.val('確認ページへ');
+                        else if (lang === 'EN') $submitBtn.val('Confirmation');
+                        else if (lang === 'KS') $submitBtn.val('확인');
+                        else if (lang === 'CN') $submitBtn.val('确认');
+                    }
+                });
+                
+                return false;
             });
             
             // Reset button
@@ -148,12 +194,9 @@
                     <span></span>
                 </h2>
 
-                <form method="post" action="https://formsubmit.co/wangyunjie1110@gmail.com">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="新しいお問い合わせ - Okinawa Lagoon">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
+                <form id="contactForm" method="post">
+                    <!-- Honeypot for spam protection -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                     
                     <div class="form_wrapper">
                         <div class="list1">
@@ -247,7 +290,6 @@
                                     </th>
                                     <td>
                                         <input type="email" name="メールアドレス" class="question" value="" required />
-                                        <input type="hidden" name="_replyto" class="email-for-reply" />
                                     </td>
                                 </tr>
                                 <tr>

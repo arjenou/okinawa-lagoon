@@ -1,0 +1,17 @@
+{
+  "name": "okinawa-lagoon",
+  "version": "1.0.0",
+  "description": "Okinawa Lagoon Yacht Charter Website",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
+
