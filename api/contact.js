@@ -71,19 +71,24 @@ module.exports = async (req, res) => {
     // 获取发件人邮箱（用于 Reply-To）
     const userEmail = req.body['メールアドレス'];
 
+    // SMTP 配置（硬编码）
+    const SMTP_USER = 'info@pasi.jp';
+    const SMTP_PASSWORD = 'upyx dupq akzz xfnq';
+    const RECIPIENT_EMAIL = 'info@pasi.jp';
+
     // 配置 Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD
+        user: SMTP_USER,
+        pass: SMTP_PASSWORD
       }
     });
 
     // 发送邮件
     await transporter.sendMail({
-      from: `"Okinawa Lagoon ${formType === 'reserve' ? '予約' : 'お問い合わせ'}" <${process.env.SMTP_USER}>`,
-      to: process.env.RECIPIENT_EMAIL,
+      from: `"Okinawa Lagoon ${formType === 'reserve' ? '予約' : 'お問い合わせ'}" <${SMTP_USER}>`,
+      to: RECIPIENT_EMAIL,
       replyTo: userEmail,
       subject: emailSubject,
       html: emailHTML,
