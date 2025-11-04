@@ -39,13 +39,23 @@
 
     <script type="text/javascript">
         $(function () {
+            console.log('🔧 Contact form script loaded - Version 2.0');
+            console.log('Form element found:', $('#contactForm').length > 0);
+            
             // Email validation and form submission
             $("#contactForm").on('submit', function(e) {
+                console.log('✅ Form submit event triggered!');
                 e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('🚫 Default form submission prevented');
                 
                 // Validate emails match
                 var email1 = $("input[name='メールアドレス']").val();
                 var email2 = $("input[name='メールアドレス確認']").val();
+                
+                console.log('Email 1:', email1);
+                console.log('Email 2:', email2);
                 
                 if (email1 !== email2) {
                     alert('メールアドレスが一致しません。\nE-mail addresses do not match.\n邮箱地址不一致。');
@@ -54,6 +64,7 @@
                 
                 // Check honeypot (spam protection)
                 if ($("input[name='_honey']").val() !== '') {
+                    console.log('⚠️ Honeypot triggered - spam detected');
                     return false;
                 }
                 
@@ -66,12 +77,17 @@
                     '住所': $("input[name='住所']").val(),
                     '電話番号': $("input[name='電話番号']").val(),
                     '携帯番号': $("input[name='携帯番号']").val(),
-                    'お問い合わせ内容': $("textarea[name='お問い合わせ内容']").val()
+                    'お問い合わせ内容': $("textarea[name='お問い合わせ内容']").val(),
+                    'formType': 'contact'
                 };
                 
+                console.log('📦 Form data collected:', formData);
+                
                 // Disable submit button
-                var $submitBtn = $(this).find('input[type="submit"]');
+                var $submitBtn = $('input[type="submit"]:visible');
                 $submitBtn.prop('disabled', true).val('送信中...');
+                
+                console.log('📤 Sending to API...');
                 
                 // Send to API
                 $.ajax({
@@ -80,15 +96,19 @@
                     contentType: 'application/json',
                     data: JSON.stringify(formData),
                     success: function(response) {
+                        console.log('✅ Success:', response);
                         alert('お問い合わせを受け付けました。ありがとうございます。\n\nYour inquiry has been received. Thank you!\n\n您的咨询已收到。谢谢！');
                         // Reset form
                         $("#contactForm")[0].reset();
                     },
                     error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                        alert('送信に失敗しました。もう一度お試しください。\n\nFailed to send. Please try again.\n\n发送失败，请重试。');
+                        console.error('❌ Error:', error);
+                        console.error('Status:', status);
+                        console.error('Response:', xhr.responseText);
+                        alert('送信に失敗しました。もう一度お試しください。\n\nFailed to send. Please try again.\n\n发送失败，请重试。\n\nError: ' + error);
                     },
                     complete: function() {
+                        console.log('🏁 Request complete');
                         // Re-enable submit button
                         $submitBtn.prop('disabled', false);
                         var lang = $.cookie('lang') || 'JP';
