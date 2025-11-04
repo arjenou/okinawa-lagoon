@@ -87,14 +87,14 @@
                 var $submitBtn = $('input[type="submit"]:visible');
                 $submitBtn.prop('disabled', true).val('送信中...');
                 
-                console.log('📤 Sending to API...');
+                console.log('📤 Sending to our custom API endpoint...');
                 
-                // Send to FormSubmit (AJAX mode - no redirect)
+                // Send to our custom API endpoint (NOT FormSubmit!)
                 $.ajax({
-                    url: 'https://formsubmit.co/ajax/info@pasi.jp',
+                    url: '/api/contact',
                     method: 'POST',
-                    dataType: 'json',
-                    data: formData,
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
                     success: function(response) {
                         console.log('✅ Success:', response);
                         alert('お問い合わせを受け付けました。ありがとうございます。\n\nYour inquiry has been received. Thank you!\n\n您的咨询已收到。谢谢！');
