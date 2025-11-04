@@ -466,9 +466,9 @@ function generateContactAutoReplyHTML(data, msg) {
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; line-height: 1.8; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
     .container { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .header { background: linear-gradient(135deg, #0698ba 0%, #0575a0 100%); color: white; padding: 40px 30px; text-align: center; }
-    .header h1 { margin: 0 0 10px 0; font-size: 28px; font-weight: 600; }
-    .header p { margin: 0; opacity: 0.95; font-size: 15px; }
+    .header { background: white; color: #333; padding: 40px 30px; text-align: center; border-bottom: 3px solid #0698ba; }
+    .header h1 { margin: 0 0 10px 0; font-size: 28px; font-weight: 600; color: #333; }
+    .header p { margin: 0; color: #666; font-size: 15px; }
     .content { padding: 40px 30px; }
     .greeting { font-size: 16px; margin-bottom: 20px; line-height: 1.8; }
     .divider { border-top: 2px solid #e0e0e0; margin: 30px 0; }
