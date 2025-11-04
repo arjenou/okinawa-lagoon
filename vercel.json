@@ -1,4 +1,23 @@
 {
   "version": 2,
-  "installCommand": "npm install"
+  "builds": [
+    {
+      "src": "okinawa-lagoon.jp/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/okinawa-lagoon.jp/$1"
+    }
+  ]
 }
