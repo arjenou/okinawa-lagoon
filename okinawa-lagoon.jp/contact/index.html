@@ -30,6 +30,44 @@
         .CN {
             display: none;
         }
+
+        /* 表单消息样式 */
+        .form-message {
+            margin-top: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.6;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .message-content {
+            font-weight: 500;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
     <script type="text/javascript">
         $.ajaxSetup({
@@ -39,8 +77,60 @@
 
     <script type="text/javascript">
         $(function () {
-            console.log('🔧 Contact form script loaded - Version 2.0');
+            console.log('🔧 Contact form script loaded - Version 3.0');
             console.log('Form element found:', $('#contactForm').length > 0);
+            
+            // 获取当前页面语言
+            function getCurrentLanguage() {
+                return $.cookie('lang') || 'JP';
+            }
+            
+            // 多语言消息配置
+            var messages = {
+                emailMismatch: {
+                    JP: 'メールアドレスが一致しません。',
+                    EN: 'E-mail addresses do not match.',
+                    KS: '이메일 주소가 일치하지 않습니다.',
+                    CN: '邮箱地址不一致。'
+                },
+                success: {
+                    JP: 'お問い合わせを受け付けました。ありがとうございます。',
+                    EN: 'Your inquiry has been received. Thank you!',
+                    KS: '문의가 접수되었습니다. 감사합니다!',
+                    CN: '您的咨询已收到。谢谢！'
+                },
+                error: {
+                    JP: '送信に失敗しました。もう一度お試しください。',
+                    EN: 'Failed to send. Please try again.',
+                    KS: '전송에 실패했습니다. 다시 시도해 주세요.',
+                    CN: '发送失败，请重试。'
+                }
+            };
+            
+            // 显示消息函数
+            function showMessage(type, messageKey) {
+                var lang = getCurrentLanguage();
+                var message = messages[messageKey][lang];
+                var $messageDiv = $('#formMessage');
+                var $messageContent = $messageDiv.find('.message-content');
+                
+                // 移除之前的样式类
+                $messageDiv.removeClass('success error');
+                
+                // 设置消息内容和样式
+                $messageContent.text(message);
+                $messageDiv.addClass(type).fadeIn(400);
+                
+                // 5秒后自动隐藏
+                setTimeout(function() {
+                    $messageDiv.fadeOut(400);
+                }, 5000);
+                
+                // 滚动到消息位置
+                $('html, body').animate({
+                    scrollTop: $messageDiv.offset().top - 100
+                }, 500);
+            }
             
             // Email validation and form submission
             $("#contactForm").on('submit', function(e) {
@@ -50,6 +140,9 @@
                 
                 console.log('🚫 Default form submission prevented');
                 
+                // 隐藏之前的消息
+                $('#formMessage').hide();
+                
                 // Validate emails match
                 var email1 = $("input[name='メールアドレス']").val();
                 var email2 = $("input[name='メールアドレス確認']").val();
@@ -58,7 +151,7 @@
                 console.log('Email 2:', email2);
                 
                 if (email1 !== email2) {
-                    alert('メールアドレスが一致しません。\nE-mail addresses do not match.\n邮箱地址不一致。');
+                    showMessage('error', 'emailMismatch');
                     return false;
                 }
                 
@@ -97,15 +190,14 @@
                     data: JSON.stringify(formData),
                     success: function(response) {
                         console.log('✅ Success:', response);
-                        alert('お問い合わせを受け付けました。ありがとうございます。\n\nYour inquiry has been received. Thank you!\n\n您的咨询已收到。谢谢！');
-                        // Reset form
+                        showMessage('success', 'success');
                         $("#contactForm")[0].reset();
                     },
                     error: function(xhr, status, error) {
                         console.error('❌ Error:', error);
                         console.error('Status:', status);
                         console.error('Response:', xhr.responseText);
-                        alert('送信に失敗しました。もう一度お試しください。\n\nFailed to send. Please try again.\n\n发送失败，请重试。\n\nError: ' + error);
+                        showMessage('error', 'error');
                     },
                     complete: function() {
                         console.log('🏁 Request complete');
@@ -389,6 +481,11 @@
                                 <input type="submit" class="KS" value="확인" />
                                 <input type="button" class="CN reset" value="明确" />
                                 <input type="submit" class="CN" value="确认" />
+                            </div>
+                            
+                            <!-- 表单提交状态消息 -->
+                            <div id="formMessage" class="form-message" style="display: none;">
+                                <div class="message-content"></div>
                             </div>
                         </div>
                 </form>
