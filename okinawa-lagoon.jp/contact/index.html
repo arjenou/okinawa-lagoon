@@ -89,12 +89,12 @@
                 
                 console.log('📤 Sending to API...');
                 
-                // Send to API
+                // Send to FormSubmit (AJAX mode - no redirect)
                 $.ajax({
-                    url: '/api/contact',
+                    url: 'https://formsubmit.co/ajax/info@pasi.jp',
                     method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(formData),
+                    dataType: 'json',
+                    data: formData,
                     success: function(response) {
                         console.log('✅ Success:', response);
                         alert('お問い合わせを受け付けました。ありがとうございます。\n\nYour inquiry has been received. Thank you!\n\n您的咨询已收到。谢谢！');

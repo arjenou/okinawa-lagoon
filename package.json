@@ -2,6 +2,7 @@
   "name": "okinawa-lagoon",
   "version": "1.0.0",
   "description": "Okinawa Lagoon Yacht Charter Website",
+  "type": "commonjs",
   "scripts": {
     "dev": "vercel dev",
     "build": "echo 'Static site - no build needed'",

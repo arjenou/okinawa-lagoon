@@ -1,19 +1,5 @@
 {
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/okinawa-lagoon.jp/(.*)",
-      "destination": "/okinawa-lagoon.jp/$1"
-    },
-    {
-      "source": "/((?!api).*)",
-      "destination": "/okinawa-lagoon.jp/$1"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 
