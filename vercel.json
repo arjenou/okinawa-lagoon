@@ -7,11 +7,11 @@
   },
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/okinawa-lagoon.jp/index.html"
+      "source": "/okinawa-lagoon.jp/(.*)",
+      "destination": "/okinawa-lagoon.jp/$1"
     },
     {
-      "source": "/okinawa-lagoon.jp/(.*)",
+      "source": "/((?!api).*)",
       "destination": "/okinawa-lagoon.jp/$1"
     }
   ]
