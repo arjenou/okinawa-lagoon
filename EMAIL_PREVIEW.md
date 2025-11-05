@@ -6,7 +6,7 @@ When someone submits the contact form, you'll receive a beautifully formatted em
 
 ### Email Header
 ```
-From: "Okinawa Lagoon お問い合わせ" <info@pasi.jp>
+From: "PASI お問い合わせ" <info@pasi.jp>
 To: info@pasi.jp
 Reply-To: [customer's email]
 Subject: 【お問い合わせ】日帰りカタマラン・クルージングについて - 山田太郎様
@@ -62,7 +62,7 @@ The email features:
 
 ---
 
-*このメールは Okinawa Lagoon のウェブサイトから送信されました*  
+*このメールは PASI のウェブサイトから送信されました*  
 *返信する場合は、上記のメールアドレスに直接返信してください*
 
 ---

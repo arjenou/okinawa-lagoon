@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
     // 发送测试邮件
     const info = await transporter.sendMail({
-      from: `"Okinawa Lagoon Test" <${SMTP_USER}>`,
+      from: `"PASI Test" <${SMTP_USER}>`,
       to: RECIPIENT_EMAIL,
       replyTo: SMTP_USER,
       subject: '【テスト】API メール送信テスト',

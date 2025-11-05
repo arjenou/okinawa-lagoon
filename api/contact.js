@@ -87,7 +87,7 @@ module.exports = async (req, res) => {
 
     // 发送邮件到 info@pasi.jp
     await transporter.sendMail({
-      from: `"Okinawa Lagoon ${formType === 'reserve' ? '予約' : 'お問い合わせ'}" <${SMTP_USER}>`,
+      from: `"PASI ${formType === 'reserve' ? '予約' : 'お問い合わせ'}" <${SMTP_USER}>`,
       to: RECIPIENT_EMAIL,
       replyTo: userEmail,
       subject: emailSubject,
@@ -172,7 +172,7 @@ function generateContactEmailHTML(data) {
       <div class="field-value" style="white-space: pre-wrap; margin-top: 10px;">${message}</div>
     </div>
     <div class="footer">
-      <p>このメールは Okinawa Lagoon のウェブサイトから送信されました</p>
+      <p>このメールは PASI のウェブサイトから送信されました</p>
       <p>返信する場合は、上記のメールアドレスに直接返信してください</p>
     </div>
   </div>
@@ -279,7 +279,7 @@ function generateReserveEmailHTML(data) {
     ` : ''}
     
     <div class="footer">
-      <p>このメールは Okinawa Lagoon のウェブサイトから送信されました</p>
+      <p>このメールは PASI のウェブサイトから送信されました</p>
       <p>返信する場合は、上記のメールアドレスに直接返信してください</p>
     </div>
   </div>
@@ -529,7 +529,7 @@ function generateContactAutoReplyHTML(data, msg) {
   <div class="container">
     <div class="header">
       <h1>🛥️ ${msg.received.includes('Received') || msg.received.includes('接수') || msg.received.includes('收到') ? 'Thank you' : 'ありがとうございます'}</h1>
-      <p>PASI - Okinawa Lagoon</p>
+      <p>PASI - PASI</p>
     </div>
     <div class="content">
       <div class="greeting">
@@ -662,7 +662,7 @@ function generateReserveAutoReplyHTML(data, msg) {
   <div class="container">
     <div class="header">
       <h1>🛥️ ${msg.received.includes('Received') || msg.received.includes('接수') || msg.received.includes('收到') ? 'Thank you' : 'ありがとうございます'}</h1>
-      <p>PASI - Okinawa Lagoon</p>
+      <p>PASI - PASI</p>
     </div>
     <div class="content">
       <div class="greeting">

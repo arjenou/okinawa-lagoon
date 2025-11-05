@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - Okinawa Lagoon
+# 🚀 Quick Start Guide - PASI
 
 ## 立即部署到 Vercel（5 分钟搞定）
 
