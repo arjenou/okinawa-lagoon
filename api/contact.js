@@ -529,7 +529,7 @@ function generateContactAutoReplyHTML(data, msg) {
   <div class="container">
     <div class="header">
       <h1>🛥️ ${msg.received.includes('Received') || msg.received.includes('接수') || msg.received.includes('收到') ? 'Thank you' : 'ありがとうございます'}</h1>
-      <p>PASI - PASI</p>
+      <p>PASI</p>
     </div>
     <div class="content">
       <div class="greeting">
@@ -662,7 +662,7 @@ function generateReserveAutoReplyHTML(data, msg) {
   <div class="container">
     <div class="header">
       <h1>🛥️ ${msg.received.includes('Received') || msg.received.includes('接수') || msg.received.includes('收到') ? 'Thank you' : 'ありがとうございます'}</h1>
-      <p>PASI - PASI</p>
+      <p>PASI</p>
     </div>
     <div class="content">
       <div class="greeting">
